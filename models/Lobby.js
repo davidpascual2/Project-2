@@ -10,20 +10,6 @@ Lobby.init({
         allowNull: false,
         autoIncrement: true
     },
-    // host_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: "Users",
-    //         key: "id"    
-    //     },
-    // },
-    // guest_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: "Users",
-    //         key: "id"
-    //     },
-    // },
 },
 {
     sequelize,

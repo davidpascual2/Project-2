@@ -1,6 +1,6 @@
 const router = require('express').Router(); 
 const { User, Dog } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //============== Home Page get request ================
 router.get("/", (req,res)=>{
@@ -45,7 +45,7 @@ router.get('/signup-login', (req, res) => {
 //     }
 // });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
     console.log(req.session)
     try{
         const userData = await User.findByPk(req.session.user_id, {
@@ -104,7 +104,7 @@ router.get('/profile', async (req, res) => {
 
 //==============GET DOG=================//
 
-router.get('/add-dog', (req, res) => {
+router.get('/add-dog', withAuth, (req, res) => {
     res.render('add-dog', {
         loggedIn: true
     })
@@ -112,7 +112,7 @@ router.get('/add-dog', (req, res) => {
 
  //=======================GET ONE DOG ===================//
 
- router.get('/edit/:id', async (req, res) => { // add with auth
+ router.get('/edit/:id', withAuth, async (req, res) => { // add with auth
     console.log(req, "REQ ==============!")
     try{
         const dogData = await Dog.findByPk(req.params.id, {
@@ -171,7 +171,7 @@ router.get('/add-dog', (req, res) => {
 //     }
 // });
 
-router.get('/single-dog/:id', async (req, res) => { // add with auth
+router.get('/single-dog/:id', withAuth, async (req, res) => { // add with auth
     try{
         const dogData = await Dog.findByPk(req.params.id, {
             // include: [
