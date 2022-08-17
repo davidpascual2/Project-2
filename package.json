@@ -31,8 +31,7 @@
     "mdb-ui-kit": "^4.3.0",
     "mysql2": "^2.3.3",
     "node-fetch": "^2.6.7",
-    "sequelize": "^6.21.2",
-    "socket.io": "^4.5.1"
+    "sequelize": "^6.21.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
