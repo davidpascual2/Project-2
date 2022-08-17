@@ -1,0 +1,21 @@
+  <div class="jumbotron mx-auto text-center">
+    <h1>Doggie Profile</h1>
+    <hr>
+    {{!-- /lobby --}}
+    <a href="" class="btn colored-section btn-lg"><span class="fa fa-eye"></span> Swipe Now</a> 
+  </div>
+  
+  <div class="container">
+    {{#each dogs as |dog|}}
+    <div class="container-md border border-3 d-flex justify-content-between mb-2">
+      <h5><a href="/single-dog/{{dog.id}}">{{dog.dog_name}}</a></h5>
+      {{!-- <p>{{format_date post.date_created}}</p> --}}
+    </div>
+    {{/each}}
+    <div class="row mt-4">
+      <a class="link btn colored-section btn-md" href="/add-dog">+ Add Dog</a>
+    </div>
+  </div>
+  
+  {{!-- <script src="/js/edit-dog.js"></script> --}}
+        
