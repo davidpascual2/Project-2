@@ -1,18 +1,17 @@
-//??????????
 const router = require('express').Router();
-const { Dog } = require('../../models'); //add USER?
-// const withAuth = require('../../utils/auth')
+const { Dog } = require('../../models'); 
+const withAuth = require('../../utils/auth')
 
 //===========ADD DOG =================//
 
-router.post('/', async (req,res) => {
+router.post('/', withAuth, async (req,res) => {
   try {
-    console.log(req, "DOG REQ++++++++++")
+    console.log(req)
     const newDog = await Dog.create({
       ...req.body, // what does elipses do 
-      user_id: req.session.user_id, //user_id? or user.id
+      user_id: req.session.user_id,
     });
-    console.log(newDog, "NEW DOG $$$$$$$$$$$")
+    console.log(newDog)
 
       res.status(200).json(newDog);
   } catch (err) {
@@ -21,24 +20,9 @@ router.post('/', async (req,res) => {
   }
 });
 
-// router.post('/', async (req, res) => { //profile? //aADD withAuth
-//     // find all categories
-//     try{
-//       const newDog = await Dog.create({
-//         ...req.body,
-//         // user_id: req.session.user_id, 
-//       });
-  
-//       res.status(200).json(newDog)
-//     } catch (err) {
-//       res.status(400).json(err)
-//     }
-//     // be sure to include its associated Products
-//   });
-
 //=======================UPDATE DOG=========================//
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try{
       const updateDog = await Dog.update({
           ...req.body //??
@@ -61,7 +45,7 @@ router.put('/:id', async (req, res) => {
 
 //======================Delete Dog============================//
 
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', withAuth, async (req,res) => {
   try{
       const deleteDog = await Dog.destroy({
           where: {
