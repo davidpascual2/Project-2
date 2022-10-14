@@ -58,7 +58,7 @@ As pet owners we want to give our dogs the best quality of life possible and pro
 We are Group 10 working together on Project-2...
 
 ## Deployed Links
-[Deployed Heroku Page](./https://ancient-scrubland-48723.herokuapp.com/)
+[Deployed Heroku app](https://ancient-scrubland-48723.herokuapp.com/)
 
 ## Screenshots
 
